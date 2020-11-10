@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Welcome</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+
+}
+img-fluid{
+max-width: 100%;
+height:Auto;
+margin:50px 50px 50px 50px;
+}
+nav navbar-nav navbar-right li a{
+color:black;
+}
+nav navbar-nav{
+color:black;
+}
+.bg {
+  /* The image used */
+  background-image: url("images/walletbg.jpg");
+  /*height: a)uto;*/
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.container {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.centered {
+  position: absolute;
+  top: 90%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+}
+</style>
+    </head>  
+    <body>  
+   
+    <div>
+     <nav class="navbar navbar-inverse" style="background-color:rgb(56, 26, 74)" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Xpense Tracker</a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li><a href="/home">Home</a></li>
+      <li><a href="/addXpense">Add new Expense</a></li>
+      <li><a href="/ViewXpense">View Your Expense</a></li>
+      <li><a href="/AddMoney">Add Money</a></li>
+      <li class="active"><a href="/viewBalance">View Balance</a></li>
+      <li><a href="/viewXpenseAnalysis">View Expense Analysis</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="color:black">
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+   <center>
+   <div class="container">
+  <img src="images/walletbg.jpg" class="img-fluid" alt="Responsive image" height="250" width="550">
+
+  <div class="centered">
+  <div class="text-block">
+  <h3>Your Wallet Balance is<br></h3><span th:text="${tbal}"> </span>
+  </div>
+  </div>
+</div>
+</center>
+   </body>
+   </html>

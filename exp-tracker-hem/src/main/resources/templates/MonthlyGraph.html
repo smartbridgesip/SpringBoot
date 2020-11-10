@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleafe.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>High Chart Example - Spring Boot</title>
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+    href="https://code.highcharts.com/css/highcharts.css" />
+<script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+    <div>
+     <nav class="navbar navbar-inverse" style="background-color:#4F000D" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Xpense Tracker</a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li><a href="/home">Home</a></li>
+      <li><a href="/addXpense">Add new Expense</a></li>
+      <li><a href="/ViewXpense">View Your Expense</a></li>
+      <li><a href="/AddMoney">Add Money</a></li>
+      <li><a href="/viewBalance">View Balance</a></li>
+      <li  class="active"><a href="/viewXpenseAnalysis">View Expense Analysis</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="color:black">
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> LOGOUT</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+<div>
+    <figure class="highcharts-figure">
+        <div id="container-bar"></div>
+    </figure>
+    <script type="text/javascript">
+        $(document).ready(
+                function() {
+                    $.ajax({
+                        url : "/MonthWiseGraph/data",
+                        success : function(result) {
+                            var months= [];
+                            var moneyspent = [];
+                            console.log(result);
+                            Object.keys(result).forEach(
+                                    function(key) {
+                                    	months.push(key);
+                                    	moneyspent.push(result[key]);
+                                    });
+                            drawChart(months, moneyspent);
+                        }
+                    });
+                });
+ 
+        function drawChart(months, moneyspent) {
+            Highcharts.chart('container-bar', {
+                chart : {
+                    type : 'column',
+                    styledMode : true
+                },
+                title : {
+                    text : 'Expenses made in each month as of now'
+                },
+                xAxis : [ {
+                    title : {
+                        text : 'Months'
+                    },
+                    categories : months
+                } ],
+                yAxis : [ {
+                    className : 'highcharts-color-0',
+                    title : {
+                        text : 'Money spent'
+                    }
+                } ],
+                series : [ {
+                    data : moneyspent
+                }]
+            });
+        }
+    </script>
+    </div>
+</body>
+</html>
