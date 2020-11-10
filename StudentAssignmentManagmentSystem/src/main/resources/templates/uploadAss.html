@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Sign up</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+</style>
+</head>
+    <body>
+   <nav class="navbar navbar-inverse" style="background-color:rgb(56, 26, 74)">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">Expense Tracker</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Instructor Registration</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    
+      <li><a href="/home">Instructor's Home</a></li>
+      <li  class="active"><a href="/uploadNewAss">Upload New Assignment</a></li>
+      <li><a href="/ViewResp">View Responses</a></li>
+      <li><a href="/loginIns"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<center><h2><span th:text="${message}"></span></h2></center>
+            <form class="form-horizontal" action="#" th:action="@{/uploadNewAss}" th:object="${ass}" method="post" style="border:3px solid black">  
+          <center><h2>Upload New Assignment</h2></center>
+			
+			<div class="form-group">
+			<label class="col-sm-2 control-label" for="AssName">Assignment Title</label>
+			<div class="col-xs-8">
+			<input class="form-control" th:field="*{AssName}" type="text" name="AssName"></input>
+			</div>
+			</div>
+			
+			
+			<div class="form-group">
+			<label class="col-sm-2 control-label" for="SubjectName">Subject Name</label> 
+			 <div class="col-xs-8">
+            <input class="form-control" th:field="*{SubjectName}" type="text" name="SubjectName"></input>
+            </div>
+			</div>
+			<div class="form-group">
+			<label class="col-sm-2 control-label" for="DueDate">Due Date for assignment</label> 
+			 <div class="col-xs-8">
+            <input class="form-control" th:field="*{DueDate}" type="date" name="DueDate"></input>
+            </div>
+			</div>
+            
+            
+            <div class="form-group">
+            <label class="col-sm-2 control-label" for="Marks">Total Marks</label> 
+             <div class="col-xs-8">
+            <input class="form-control" th:field="*{Marks}" type="Number" name="Marks"></input>
+            </div>
+			</div>
+            <div class="row">
+            <center>
+            <input class="btn btn-primary" type="reset" value="Clear"/>
+            <input class="btn btn-primary" type="submit" value="Submit"></input>
+            </center>
+            </div>
+			 </form>
+			 
+			 
+    </body>  
+</html>  
+

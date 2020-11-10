@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Home</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+</style>
+    </head>  
+    <body> 
+    <div>   
+<img src="https://spoonacular.com/cdn/ingredients_100x100/apple.jpg">
+    </div>
+    <div>
+       <nav class="navbar navbar-inverse" style="background-color:rgb(64, 0, 64);color:white">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">Assignment Tracker</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+     <ul class="nav navbar-nav navbar-right" style="color:black">
+    <li><a href="/regIns"><span class="glyphicon glyphicon-user"></span> Register As an Instructor</a></li>
+    <li><a href="/loginIns"><span class="glyphicon glyphicon-log-in"></span> Login As an Instructor</a></li>
+    <li><a href="/regStud"><span class="glyphicon glyphicon-user"></span> Register As Student</a></li>
+    <li><a href="/loginStud"><span class="glyphicon glyphicon-log-in"></span> Login As Student</a></li>
+      </ul>
+    </div>
+</nav>
+</div>
+ 
+        <center>
+            <span th:text="${message}" style="color:black"></span>
+        </center>
+      
+<img src="https://spoonacular.com/cdn/ingredients_100x100/apple.jpg" align="middle" height=490 width="1200">
+</body>
+
+</html> 

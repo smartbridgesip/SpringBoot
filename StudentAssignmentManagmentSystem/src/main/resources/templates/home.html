@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Doc MAnager</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<center>
+<div>
+<div style="color:green"><h3>[[${message}]]</h3></div>
+<form class="form-horizontal" th:action="@{/upload}" method="post" enctype="multipart/form-data" style="border:3px solid black">
+<h2></h2>
+<div>
+<h2>Browse assignment question file </h2>
+<p>
+<input type="file" name="document" required /> 
+</p>
+<p>
+<input type="submit" value="upload" class="btn btn=primary" />  
+</p>
+</div>
+</form>
+</center>
+</div>
+</body>
+</html>
