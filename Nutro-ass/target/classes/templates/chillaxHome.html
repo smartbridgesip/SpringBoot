@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Home</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.split {
+  height: 50%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 50;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  border:3px solid black;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  border:3px groove ;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+</style>
+    </head>  
+    <div>
+<img src="images/head.jpg" height="125" width="1200">
+    </div>
+    <body> 
+       <nav class="navbar navbar-inverse" style="background-color:rgb(64, 0, 64);">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cutlery"></span> NUTRO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="/">Home</a></li>
+    </ul>
+    <div class="text-dark">
+     <ul class="nav navbar-nav navbar-right">
+    <li><a href="/quickbrowse"><span class="glyphicon glyphicon-globe"></span> Quick Browse</a></li>
+    <li><a href="/quickanswer"><span class="glyphicon glyphicon-thumbs-up"></span> Quick Answer</a></li>
+    <li class="active"><a href="#"><span class="glyphicon glyphicon-sunglasses"></span> Chillax</a></li>
+    </div>]
+      </ul>
+    </div>
+</nav>
+<div>
+        <div class="split left">
+  		<div class="centered">
+        <div class="container">
+        <img src="images/joke.jpg" height=100%, width=100%>
+            <form class="form-horizontal" action="#" th:action="@{/GetJoke}" th:object="${input}" method="post" >
+            <div class="row">
+            <input class="btn btn-primary" type="submit" value="Show some joke...."></input>
+            </div>
+            </form>
+        </div>
+        <h5>
+        <span th:text="${joke}"></span><br>
+    	</h5>
+		</div>
+		</div>
+
+		<div class="split right">
+  		<div class="centered">
+        <div class="container">
+        <img src="images/think.jpg" height=100%, width=100%>
+            <form class="form-horizontal" action="#" th:action="@{/GetTrivia}" th:object="${input}" method="post" >
+            <div class="row">
+            <input class="btn btn-primary" type="submit" value="Show some food trivia...."></input>
+            </div>
+            </form>
+        </div>
+        <h5><span th:text="${trivia}"></span><br></h5>
+    	
+		</div>
+		</div>
+</div>
+    </body>  
+</html>  

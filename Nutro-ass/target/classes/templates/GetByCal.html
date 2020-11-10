@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Home</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+</style>
+    </head>  
+    <div>
+<img src="images/head.jpg" height="125" width="1200">
+    </div>
+    <body> 
+       <nav class="navbar navbar-inverse" style="background-color:rgb(64, 0, 64);">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-cutlery"></span> NUTRO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+    </ul>
+    <div class="text-dark">
+     <ul class="nav navbar-nav navbar-right">
+    <li><a href="/quickbrowse"><span class="glyphicon glyphicon-globe"></span> Quick Browse</a></li>
+    <li><a href="/quickanswer"><span class="glyphicon glyphicon-thumbs-up"></span> Quick Answer</a></li>
+    <li><a href="/chillax"><span class="glyphicon glyphicon-sunglasses"></span> Chillax</a></li>
+    </div>
+</ul>
+    </div>
+</nav>
+<div class="container" style="border:3px groove;">
+            <form class="form-horizontal" action="#" th:action="@{/resbycal}" th:object="${input}" method="post" >  
+		    <div class="form-group">
+            <label class="col-sm-4 control-label" for="cal">Targeted Calories</label>
+            <div class="col-xs-4">
+            <input class="form-control" th:field="*{cal}" type="text" name="cal" placeholder=" e.g 2000"></input>
+            </div>
+            </div>
+            <div class="row"><center>
+            <input class="btn btn-primary" type="submit" value="Get List of Recipes "></input></div>
+            </form>
+    </div>
+   <center>
+		<div class="container">
+        <h2>Some Recipe's for you</h2>
+      
+        <table class="table" style="border:1px solid black">
+         <thead>
+            <tr>
+                <th>Id</th>
+                <th>title</th>
+                <th>Ready in (mins)</th>
+                <th>No of Servings</th>
+                <th>Link to Recipe</th>
+            </tr>
+             </thead>
+             <tbody>
+            <tr th:each="l : ${list}">
+                <td th:text="${l.id}"></td>
+                <td th:text="${l.title}"></td>
+                <td th:text="${l.readyInMinutes}"></td>
+                <td th:text="${l.servings}"></td>
+                <td th:text="${l.sourceUrl}" th:color="blue"></td>
+           </tr>
+            </tbody>
+        </table>
+    </div>
+   </center>
+</body>
+</html> 
