@@ -1,0 +1,6 @@
+applications:
+- name: ctApp
+path: target/Corona_Tracker_App-0.0.1-SNAPSHOT.jar
+domain: cfapps.io
+memory: 1G
+instances: 1
