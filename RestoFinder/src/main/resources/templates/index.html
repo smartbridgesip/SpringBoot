@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Home</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
+           
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+.text-block {
+  position: absolute;
+  bottom: 390px;
+  right: 500px;
+  background-color: rgb(0, 128, 128);
+  color: rgb(0, 0, 0);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.img-block {
+ position: absolute;
+  bottom: 80px;
+  right: 390px;
+}
+</style>
+    </head>  
+    <body> 
+       <nav class="navbar navbar-inverse" style="background-color:rgb(64, 0, 64);">
+  <div class="container-fluid" >
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span>RESTO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+    </ul>
+    <div class="text-dark">
+     <ul class="nav navbar-nav navbar-right">
+    <li><a href="/byZ"><span class="glyphicon glyphicon-globe"></span> Restaurant's by ZipCode</a></li>
+    <li><a href="/byS"><span class="glyphicon glyphicon-thumbs-up"></span> Restaurant's by State</a></li>
+    </div>
+    
+      </ul>
+    </div>
+</nav>
+ <div class=img-block>
+<img src="images/resto-bg.jpg" height="300" width="500">
+    </div>
+ <div class=text-block>
+        <center>
+           <h1>Welcome!! </h1>
+           
+ </center>
+ </div>
+</body>
+
+</html> 
