@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+    <title>SportsBoard</title>
+  </head>
+  <body>
+  <!-- navbar and text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">
+    <img src="/images/sports-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ScoreBoard
+  </a>
+  
+    <li class="nav-item">
+      <a class="btn btn-warning btn-sm" href="/" role="button">Live matches</a>
+   
+      <a class=" btn btn-secondary btn-sm" href="/news" role="button"> News</a>
+        
+  <a class="btn btn-info btn-sm" href="/bydate" role="button">Day wise matches</a>
+    </li>
+      
+</nav>
+  
+  
+<center>
+<div class="container">
+	<div class="row">
+	<li class="nav-item">
+          <a class=" btn btn-info btn-sm" href="/cktN" role="button">Cricket</a>
+            <a class=" btn btn-info btn-sm" href="/scrN" role="button">Soccer</a>
+            <a class="btn btn-info btn-sm" href="/ftblN" role="button">basketball</a>
+            <a class="btn btn-info btn-sm" href="/hkyN" role="button">Hockey</a>
+            <a class="btn btn-info btn-sm" href="/tnsN" role="button">Tennis</a>
+            </li>
+    </div>
+    </div>
+</center>
+<tbody>
+<tr th:each="li : ${newsList}">
+<br>
+<div class="card" style="border:solid;">
+  <div class="card-header">
+   <span th:text="${li.tit}"></span>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <small><span th:remove="tag" th:utext="${li.con}"></span></small>
+      <footer class="blockquote-footer"><span th:text="${li.aut}"></span></footer>
+    </blockquote>
+  </div>
+</div>
+</tr>
+</tbody>
+    </body>
+</html>

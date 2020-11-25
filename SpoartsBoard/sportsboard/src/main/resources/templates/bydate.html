@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"> 
+    <head>  
+        <title>Home</title>  
+        
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+             
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <style type="text/css">
+           form {
+	max-width: 665px;
+	margin: 20px auto;
+	padding: 20px 20px;
+	background: #fff;
+	border-radius: 8px;
+}
+.centered {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+</style>
+    </head>  
+  
+    <body> 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">
+    <img src="/images/sports-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ScoreBoard
+  </a>
+  
+    <li class="nav-item">
+      <a class="btn btn-warning btn-sm" href="/" role="button">Live matches</a>
+   
+      <a class=" btn btn-secondary btn-sm" href="/news" role="button"> News</a>
+  <a class="btn btn-info btn-sm" href="/lgbygm" role="button">Leagues</a>
+    </li>
+      
+</nav>
+<div class="row"></div>
+<center>
+<div class="container">
+	<div class="row">
+	<li class="nav-item">
+          <a class=" btn btn-success btn-sm" href="/ckt" role="button">Cricket</a>
+            <a class=" btn btn-success btn-sm" href="/scr" role="button">Soccer</a>
+            <a class="btn btn-success btn-sm" href="/ftbl" role="button">basketball</a>
+            <a class="btn btn-success btn-sm" href="/hky" role="button">Hockey</a>
+            <a class="btn btn-success btn-sm" href="/tns" role="button">Tennis</a>
+            </li>
+    </div>
+    </div>
+    </center>
+    <div class="row"></div>
+   <center>
+	<table class="table">
+  <thead class="thead-light">
+            <tr>
+                <th>Id</th>
+                <th>League</th>
+            </tr>
+      </thead>
+             <tbody>
+            <tr th:each="li : ${mList}">
+                <td th:text="${li.Cid}"></td>
+                <td th:text="${li.Cnm}"></td>
+           </tr>
+            </tbody>
+</table>
+   </center>
+</body>
+</html> 

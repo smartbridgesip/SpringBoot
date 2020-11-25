@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+    <title>SportsBoard</title>
+  </head>
+  <body>
+  <!-- navbar and text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">
+    <img src="/Images/sports-icon.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    ScoreBoard
+  </a>
+  
+    <li class="nav-item">
+      <a class="btn btn-warning btn-sm" href="/" role="button">Live matches</a>
+   
+      <a class=" btn btn-secondary btn-sm" href="/news" role="button"> News</a>
+        
+  <a class="btn btn-info btn-sm" href="/lgbygm" role="button">Leagues</a>
+    </li>
+      
+</nav>
+  
+  
+<center>
+<div class="container" style="padding-left: 400px;padding-top: 10px;">
+	<div class="row">
+	<li class="nav-item">
+          <a class=" btn btn-info btn-sm" href="/cktN" role="button">Cricket</a>
+            <a class=" btn btn-info btn-sm" href="/scrN" role="button">Soccer</a>
+            <a class="btn btn-info btn-sm" href="/ftblN" role="button">basketball</a>
+            <a class="btn btn-info btn-sm" href="/hkyN" role="button">Hockey</a>
+            <a class="btn btn-info btn-sm" href="/tnsN" role="button">Tennis</a>
+            </li>
+    </div>
+    </div>
+    <div>
+    
+<h2><span th:text="@{${msg}}"></span></h2>
+    </div>
+</center>
+
+
+<div style="padding-left: 100px">
+
+<tbody>
+<tr th:each="li : ${newsList}">
+<br>
+ <div class="card border-primary mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    
+    <div class="col-md-12">
+      <div class="card-body">
+        <h5 class="card-title"><span th:text="${li.tit}"></span></h5>
+        <div class="col-md-12">
+      <img th:src="@{${li.img}}" class="card-img" alt="" >
+    </div>
+        <div class="card-text"><small><span th:remove="tag" th:utext="${li.con}"></span></small></div>
+        <p class="card-text"><small class="text-muted"><span th:text="${li.aut}"></span></small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</tr>
+</tbody>
+</div>
+    </body>
+   
+</html>
