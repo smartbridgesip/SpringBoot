@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+    <title>Phrase Processor</title>
+    <style>
+    body {
+  background: url('https://wallpapercave.com/wp/wp1920734.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}</style>
+  </head>
+  <body>
+
+<center>
+ <div class="container">
+  <div class="card border-info shadow my-5">
+    <div class="card-body p-5">
+       <div class="card-header bg-transparent border-info"><h1 class="font-weight-heavy">Word Processor</h1></div>
+       <div style="height: 50px"></div>
+       <h3><center>
+            You are viewing synonyms for "<span th:text="${word}"></span>"<br/><br/>
+        </center></h3>
+       <div class="row" style="padding-left: 80px;">
+       <a href="/WP" class="btn btn-primary">Go back to word home</a>
+     <a href="/syns" class="btn btn-success">View Synonyms</a>
+ <a href="/ants" class="btn btn-danger">View Antonyms</a>
+  <a href="/defs" class="btn btn-warning">View Definations</a>
+   <a href="/egs" class="btn btn-info">View Examples</a>
+   <a href="/rhs" class="btn btn-dark">View Rhymes</a>
+</div>
+   <center>
+  <div style="padding-left: 100px">
+
+<tbody>
+
+<br>
+ <div class="card border-dark mb-3" style="max-width: 500px;">
+  <div class="row no-gutters">
+    <div class="col-md-12">
+      <div class="card-body">
+        <h5 class="card-header bg-transparent border-success"><small>Synonyms</small></h5>
+        <div class="card-body text-success">
+        <table class="table" style="border: solid 2px">
+  <thead class="thead-dark">
+            <tr>
+                <th></th>
+                
+            </tr>
+      </thead>
+             <tbody>
+            <tr th:each="li : ${slist}">
+                <td th:text="${li}"></td>
+                
+           </tr>
+            </tbody>
+</table>
+        
+           </div>
+      </div>
+    </div>
+  </div>
+</div>
+</tr>
+</tbody>
+</div>
+   </center>
+    
+
+    </body>
+</html>
