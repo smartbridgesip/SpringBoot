@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
+    <title>NewSearch</title>
+  </head>
+  <body>
+  <!-- navbar and text -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/">
+    <img src="/Images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    IndoNews
+  </a>
+  
+    <ul class="nav-item">
+      <a class="btn btn-warning btn-sm" href="/news" role="button">News</a>
+      <a class=" btn btn-warning btn-sm" href="/ng" role="button">News at a glance</a>
+  <a class="btn btn-warning btn-sm" href="/srch" role="button">News Search</a>
+  
+    </ul>
+      
+</nav>
+  <div class="d-flex justify-content-center">
+ <form class="form-horizontal" action="#" th:action="@{/srch}" th:object="${input}" method="post" >  
+		    <div class="form-group">
+            <div class="col-xs-8">
+            <input class="form-control" th:field="*{word}" type="text" name="ques" placeholder="Enter to search e.g software"></input>
+            </div>
+            </div>
+            
+            <div class="row"><center>
+            <input class="btn btn-success" type="submit" value="Search"></input>
+            <a href="/" class="btn btn-warning"> Back to Home</a>
+            </div>
+        	
+            </form>
+</form>
+</div>
+ 
+<div style="padding-left: 100px">
+
+<tbody>
+<tr th:each="li : ${news}">
+<br>
+<div class="card" style="max-width: 1000px;" >
+  <h5 class="card-header"><span th:text="${li.name}"></span></h5>
+  <div class="card-body">
+     <div class="row">
+   
+        <div class="card-text"><span th:remove="tag" th:utext="${li.description}" style="padding-left:30"></span>
+         <a th:href="${li.url}" class="btn btn-primary-sm">Read More....</a>
+      </div>
+    
+  </div>
+   <div class="card-footer text-muted">
+    <span th:remove="tag" th:utext="${li.datePublished}" ></span>
+  </div>
+</div>
+
+</tr>
+</tbody>
+</div>
+    </body>
+   
+</html>
