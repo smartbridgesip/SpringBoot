@@ -1,13 +1,11 @@
 package com.hemlata.app.service;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-
+import org.thymeleaf.util.DateUtils;
 import com.hemlata.app.models.LocationStats;
 //import com.hemlata.app.repos.repos;
-
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.StringReader;
@@ -15,57 +13,22 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate; 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-
 @Service
 public class CoronaDataService {
-	
-	
 	static String ydate() {
-//String yestD=null; 
-		
-		//variable to store date in string format
-		//String yesterdayDate=null; 
-		String datey=null;
-		int yday;
-		String ymon;
-		String yyear;
-		//to get calendar instance 
-		Calendar cal = Calendar.getInstance();
-		
-		//subtract 1 from calendar current date 
-		//cal.add(Calendar.DATE, -1);
-		
-		//format date
-		DateFormat dateFormat = new SimpleDateFormat("dd");
-		
-		//get formatted date
-		datey=dateFormat.format(cal.getTime());
-		yday=Integer.parseInt(datey);
-		yday=yday-1;
-		
-DateFormat datemon = new SimpleDateFormat("mm");
-		//get formatted date
-		ymon=datemon.format(cal.getTime());
-		
-		
-DateFormat dateyear = new SimpleDateFormat("yyyy");
-		
-		//get formatted date
-		yyear=dateyear.format(cal.getTime());
-		
-		datey=Integer.toString(yday);
-		List<String> vallist = Arrays.asList("09",datey,yyear);
-		String ydate = String.join("-",vallist);
-		System.out.println("Yesterday's date = "+ ydate);
-		return ydate;
+
+		final String CURRENT_DATE_FORMAT = "MM-dd-yyyy";
+		 DateFormat dateFormat = new SimpleDateFormat(CURRENT_DATE_FORMAT);
+         Date date = new Date();
+         date .setTime(date.getTime()-24*60*60*1000);  // Subtract 24*60*60*1000 milliseconds
+         return dateFormat.format(date);
 	}
 	static String name_url="https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/";
 	static String yd=ydate();
@@ -79,7 +42,6 @@ DateFormat dateyear = new SimpleDateFormat("yyyy");
     public List<LocationStats> getAllStats() {
         return allStats;
     }
-
     @PostConstruct
     @Scheduled(cron = "* * 1 * * *")
     public void fetchVirusData() throws IOException, InterruptedException {
