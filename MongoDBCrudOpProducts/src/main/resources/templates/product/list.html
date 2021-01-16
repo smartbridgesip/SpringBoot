@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product Lists</title>
+            
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+    <link href="../../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+          
+          
+       <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  body {
+	font-family: 'Nunito', sans-serif;
+	color: #384047;
+	background: url("../images/wp3195757.jpg");
+	background-size: cover;
+	line-height: 0.5;
+}
+  </style>
+</head>
+<body>
+
+<center>
+<div class="container" >
+    <div th:if="${not #lists.isEmpty(products)}" >
+        <h2>Product List</h2>
+        <table class="table" style="border:1px solid black">
+         <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image URL</th>
+                <th>List</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+             </thead>
+             <tbody>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id.toHexString()}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.imageUrl}"></td>
+                <td><a th:href="${'/product/show/' + product.id.toHexString()}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">View</a> </td>
+                <td><a th:href="${'/product/edit/' + product.id.toHexString()}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Edit</a> </td>
+                <td><a th:href="${'/product/delete/' + product.id.toHexString()}" class="btn btn-primary btn-sm" role="button" aria-pressed="true" color="red">Delete</a> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+   
+    <center>
+            <a href="/product/new" class="btn btn-primary btn-lg" role="button" aria-pressed="true">Add New Product</a>
+   
+        </center>
+    
+
+</div>
+</center>
+</body>
+</html>
